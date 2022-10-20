@@ -29,6 +29,9 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
 /**
  * 开启审计功能 -> @EnableJpaAuditing
  *
@@ -49,6 +52,7 @@ public class AppRun {
         // 或者在 application.yml 添加文件路径，方便 kill，kill `cat /home/eladmin/app.pid`
         springApplication.addListeners(new ApplicationPidFileWriter());
         springApplication.run(args);
+
     }
 
     @Bean
